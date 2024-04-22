@@ -1,0 +1,596 @@
+{
+	"info": {
+		"_postman_id": "08f471ef-5057-454a-8c67-50668fd3f7c6",
+		"name": "Bidda POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19944440"
+	},
+	"item": [
+		{
+			"name": "Calendly",
+			"item": [
+				{
+					"name": "Busy Times",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzMDAyMDg5LCJqdGkiOiJmNjlkYjVlNi0wZjNjLTRmZDAtODgyMy0yZDdhODlkYzc4NWEiLCJ1c2VyX3V1aWQiOiJkZjhkMWM3NC1mMzk2LTQ1MzctYWYyZS1mMjgzNTVjOGM5M2EifQ.7qenYYdtixpZ2lS8tbP0oUmcUFuBwxGUIEhV1P8MQqyWp5D6vc8UEFmnIUvHDllhISHyvj9DOdlVQYphb5eoYg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.calendly.com/user_busy_times?user=https://api.calendly.com/users/df8d1c74-f396-4537-af2e-f28355c8c93a&start_time=2023-09-05T08:00:00.500072Z&end_time=2023-09-05T20:00:00.500072Z",
+							"protocol": "https",
+							"host": [
+								"api",
+								"calendly",
+								"com"
+							],
+							"path": [
+								"user_busy_times"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "https://api.calendly.com/users/df8d1c74-f396-4537-af2e-f28355c8c93a"
+								},
+								{
+									"key": "start_time",
+									"value": "2023-09-05T08:00:00.500072Z"
+								},
+								{
+									"key": "end_time",
+									"value": "2023-09-05T20:00:00.500072Z"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "View Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/tickets/358",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"tickets",
+						"358"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"custom_fields\": {\n        \"cf_profesional810950\": null,\n        \"cf_horario\": null,\n        \"cf_disponibilidad\": null,\n        \"cf_fecha\": null\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/tickets/358",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"tickets",
+						"358"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Ticket Field",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/admin/ticket_fields/70000734970",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"admin",
+						"ticket_fields",
+						"70000734970"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Ticket Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/search/tickets?query=\"(status:2%20OR%20status:3)%20AND%20type:%27Autorización%27%20AND%20cf_documento_solicitante:1061000123\"",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"search",
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "\"(status:2%20OR%20status:3)%20AND%20type:%27Autorización%27%20AND%20cf_documento_solicitante:1061000123\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Tenemos buenas noticias. Hay un cliente interesado en afiliarse con los siguientes datos: _. Si deseas avanzar con esta afiliación, por favor, avísanos para coordinar los siguientes pasos.\",\n    \"subject\": \"Nueva Afiliación\",\n    \"email\": \"dotek23872@tiuas.com\",\n    \"priority\": 2,\n    \"status\": 2,\n    \"type\": \"Afiliación\",\n    \"product_id\": 70000009894,\n    \"group_id\": 70000470797,\n    \"custom_fields\": {\n        \"cf_cita_propuesta_cliente\": \"2023-08-24\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/tickets",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/contacts/70029335813",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"contacts",
+						"70029335813"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Company",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/companies/70000630928",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"companies",
+						"70000630928"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://biddapoc.freshdesk.com/api/v2/search/tickets?query=\"type:'Afiliación'%20AND%20status:2\"",
+					"protocol": "https",
+					"host": [
+						"biddapoc",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"search",
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "\"type:'Afiliación'%20AND%20status:2\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conversation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/JSON"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJraWQiOiJjdXN0b20tb2F1dGgta2V5aWQiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmcmVzaGNoYXQiLCJzdWIiOiJiZDFlNjcyNC0xYjhlLTQ0OGItYjUyOS03Nzk1ODA3MDFkZTAiLCJjbGllbnRJZCI6ImZjLTMyY2Y3MWZiLWM3MTctNDczNC05ODJkLWQ2NzlmZTNjZGRmNSIsInNjb3BlIjoiYWdlbnQ6cmVhZCBhZ2VudDpjcmVhdGUgYWdlbnQ6dXBkYXRlIGFnZW50OmRlbGV0ZSBjb252ZXJzYXRpb246Y3JlYXRlIGNvbnZlcnNhdGlvbjpyZWFkIGNvbnZlcnNhdGlvbjp1cGRhdGUgbWVzc2FnZTpjcmVhdGUgbWVzc2FnZTpnZXQgYmlsbGluZzp1cGRhdGUgcmVwb3J0czpmZXRjaCByZXBvcnRzOmV4dHJhY3QgcmVwb3J0czpyZWFkIHJlcG9ydHM6ZXh0cmFjdDpyZWFkIGFjY291bnQ6cmVhZCBkYXNoYm9hcmQ6cmVhZCB1c2VyOnJlYWQgdXNlcjpjcmVhdGUgdXNlcjp1cGRhdGUgdXNlcjpkZWxldGUgb3V0Ym91bmRtZXNzYWdlOnNlbmQgb3V0Ym91bmRtZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6bWVzc2FnZTpzZW5kIG1lc3NhZ2luZy1jaGFubmVsczptZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6dGVtcGxhdGU6Y3JlYXRlIG1lc3NhZ2luZy1jaGFubmVsczp0ZW1wbGF0ZTpnZXQgZmlsdGVyaW5ib3g6cmVhZCBmaWx0ZXJpbmJveDpjb3VudDpyZWFkIHJvbGU6cmVhZCBpbWFnZTp1cGxvYWQiLCJpc3MiOiJmcmVzaGNoYXQiLCJ0eXAiOiJCZWFyZXIiLCJleHAiOjIwMDAwNDMwNTAsImlhdCI6MTY4NDQyMzg1MCwianRpIjoiNDExM2I4ODItM2MzZi00MTliLWFkNmMtMWJlNjY5NGE1MThhIn0.6QCH-INPyLpTe21ODCVCSZPIzz1oWfn4wxrTQYVfafw "
+					},
+					{
+						"key": "content-type",
+						"value": "application/JSON"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{host}}.freshchat.com/v2/conversations/1f1b7351-0260-4f04-a931-36c514afd0c3",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshchat",
+						"com"
+					],
+					"path": [
+						"v2",
+						"conversations",
+						"1f1b7351-0260-4f04-a931-36c514afd0c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create CSAT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/JSON"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJraWQiOiJjdXN0b20tb2F1dGgta2V5aWQiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmcmVzaGNoYXQiLCJzdWIiOiJiZDFlNjcyNC0xYjhlLTQ0OGItYjUyOS03Nzk1ODA3MDFkZTAiLCJjbGllbnRJZCI6ImZjLTMyY2Y3MWZiLWM3MTctNDczNC05ODJkLWQ2NzlmZTNjZGRmNSIsInNjb3BlIjoiYWdlbnQ6cmVhZCBhZ2VudDpjcmVhdGUgYWdlbnQ6dXBkYXRlIGFnZW50OmRlbGV0ZSBjb252ZXJzYXRpb246Y3JlYXRlIGNvbnZlcnNhdGlvbjpyZWFkIGNvbnZlcnNhdGlvbjp1cGRhdGUgbWVzc2FnZTpjcmVhdGUgbWVzc2FnZTpnZXQgYmlsbGluZzp1cGRhdGUgcmVwb3J0czpmZXRjaCByZXBvcnRzOmV4dHJhY3QgcmVwb3J0czpyZWFkIHJlcG9ydHM6ZXh0cmFjdDpyZWFkIGFjY291bnQ6cmVhZCBkYXNoYm9hcmQ6cmVhZCB1c2VyOnJlYWQgdXNlcjpjcmVhdGUgdXNlcjp1cGRhdGUgdXNlcjpkZWxldGUgb3V0Ym91bmRtZXNzYWdlOnNlbmQgb3V0Ym91bmRtZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6bWVzc2FnZTpzZW5kIG1lc3NhZ2luZy1jaGFubmVsczptZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6dGVtcGxhdGU6Y3JlYXRlIG1lc3NhZ2luZy1jaGFubmVsczp0ZW1wbGF0ZTpnZXQgZmlsdGVyaW5ib3g6cmVhZCBmaWx0ZXJpbmJveDpjb3VudDpyZWFkIHJvbGU6cmVhZCBpbWFnZTp1cGxvYWQiLCJpc3MiOiJmcmVzaGNoYXQiLCJ0eXAiOiJCZWFyZXIiLCJleHAiOjIwMDAwNDMwNTAsImlhdCI6MTY4NDQyMzg1MCwianRpIjoiNDExM2I4ODItM2MzZi00MTliLWFkNmMtMWJlNjY5NGE1MThhIn0.6QCH-INPyLpTe21ODCVCSZPIzz1oWfn4wxrTQYVfafw "
+					},
+					{
+						"key": "content-type",
+						"value": "application/JSON"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"issue_resolved\": true,\n    \"rating\": 5,\n    \"additional_feedback\": \"Issue was resolved in a very short time\",\n    \"reopen_conversation\": false\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}.freshchat.com/v2/csat/1f1b7351-0260-4f04-a931-36c514afd0c3",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshchat",
+						"com"
+					],
+					"path": [
+						"v2",
+						"csat",
+						"1f1b7351-0260-4f04-a931-36c514afd0c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users Freshchat Email",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJjdXN0b20tb2F1dGgta2V5aWQiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmcmVzaGNoYXQiLCJzdWIiOiJiZDFlNjcyNC0xYjhlLTQ0OGItYjUyOS03Nzk1ODA3MDFkZTAiLCJjbGllbnRJZCI6ImZjLTMyY2Y3MWZiLWM3MTctNDczNC05ODJkLWQ2NzlmZTNjZGRmNSIsInNjb3BlIjoiYWdlbnQ6cmVhZCBhZ2VudDpjcmVhdGUgYWdlbnQ6dXBkYXRlIGFnZW50OmRlbGV0ZSBjb252ZXJzYXRpb246Y3JlYXRlIGNvbnZlcnNhdGlvbjpyZWFkIGNvbnZlcnNhdGlvbjp1cGRhdGUgbWVzc2FnZTpjcmVhdGUgbWVzc2FnZTpnZXQgYmlsbGluZzp1cGRhdGUgcmVwb3J0czpmZXRjaCByZXBvcnRzOmV4dHJhY3QgcmVwb3J0czpyZWFkIHJlcG9ydHM6ZXh0cmFjdDpyZWFkIGFjY291bnQ6cmVhZCBkYXNoYm9hcmQ6cmVhZCB1c2VyOnJlYWQgdXNlcjpjcmVhdGUgdXNlcjp1cGRhdGUgdXNlcjpkZWxldGUgb3V0Ym91bmRtZXNzYWdlOnNlbmQgb3V0Ym91bmRtZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6bWVzc2FnZTpzZW5kIG1lc3NhZ2luZy1jaGFubmVsczptZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6dGVtcGxhdGU6Y3JlYXRlIG1lc3NhZ2luZy1jaGFubmVsczp0ZW1wbGF0ZTpnZXQgZmlsdGVyaW5ib3g6cmVhZCBmaWx0ZXJpbmJveDpjb3VudDpyZWFkIHJvbGU6cmVhZCBpbWFnZTp1cGxvYWQiLCJpc3MiOiJmcmVzaGNoYXQiLCJ0eXAiOiJCZWFyZXIiLCJleHAiOjIwMDAwNDMwNTAsImlhdCI6MTY4NDQyMzg1MCwianRpIjoiNDExM2I4ODItM2MzZi00MTliLWFkNmMtMWJlNjY5NGE1MThhIn0.6QCH-INPyLpTe21ODCVCSZPIzz1oWfn4wxrTQYVfafw"
+					}
+				],
+				"url": {
+					"raw": "https://biddapoc.freshchat.com/v2/users/ee438e56-f33f-4ec0-a36d-61eeaf0721e0",
+					"protocol": "https",
+					"host": [
+						"biddapoc",
+						"freshchat",
+						"com"
+					],
+					"path": [
+						"v2",
+						"users",
+						"ee438e56-f33f-4ec0-a36d-61eeaf0721e0"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "items_per_page",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "email",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Reference Freshchat",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJjdXN0b20tb2F1dGgta2V5aWQiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmcmVzaGNoYXQiLCJzdWIiOiJiZDFlNjcyNC0xYjhlLTQ0OGItYjUyOS03Nzk1ODA3MDFkZTAiLCJjbGllbnRJZCI6ImZjLTMyY2Y3MWZiLWM3MTctNDczNC05ODJkLWQ2NzlmZTNjZGRmNSIsInNjb3BlIjoiYWdlbnQ6cmVhZCBhZ2VudDpjcmVhdGUgYWdlbnQ6dXBkYXRlIGFnZW50OmRlbGV0ZSBjb252ZXJzYXRpb246Y3JlYXRlIGNvbnZlcnNhdGlvbjpyZWFkIGNvbnZlcnNhdGlvbjp1cGRhdGUgbWVzc2FnZTpjcmVhdGUgbWVzc2FnZTpnZXQgYmlsbGluZzp1cGRhdGUgcmVwb3J0czpmZXRjaCByZXBvcnRzOmV4dHJhY3QgcmVwb3J0czpyZWFkIHJlcG9ydHM6ZXh0cmFjdDpyZWFkIGFjY291bnQ6cmVhZCBkYXNoYm9hcmQ6cmVhZCB1c2VyOnJlYWQgdXNlcjpjcmVhdGUgdXNlcjp1cGRhdGUgdXNlcjpkZWxldGUgb3V0Ym91bmRtZXNzYWdlOnNlbmQgb3V0Ym91bmRtZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6bWVzc2FnZTpzZW5kIG1lc3NhZ2luZy1jaGFubmVsczptZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6dGVtcGxhdGU6Y3JlYXRlIG1lc3NhZ2luZy1jaGFubmVsczp0ZW1wbGF0ZTpnZXQgZmlsdGVyaW5ib3g6cmVhZCBmaWx0ZXJpbmJveDpjb3VudDpyZWFkIHJvbGU6cmVhZCBpbWFnZTp1cGxvYWQiLCJpc3MiOiJmcmVzaGNoYXQiLCJ0eXAiOiJCZWFyZXIiLCJleHAiOjIwMDAwNDMwNTAsImlhdCI6MTY4NDQyMzg1MCwianRpIjoiNDExM2I4ODItM2MzZi00MTliLWFkNmMtMWJlNjY5NGE1MThhIn0.6QCH-INPyLpTe21ODCVCSZPIzz1oWfn4wxrTQYVfafw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"reference_id\": \"dotek23872@tiuas.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://biddapoc.freshchat.com/v2/users/5711973f-5628-4541-8a1a-56aba5471700",
+					"protocol": "https",
+					"host": [
+						"biddapoc",
+						"freshchat",
+						"com"
+					],
+					"path": [
+						"v2",
+						"users",
+						"5711973f-5628-4541-8a1a-56aba5471700"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "items_per_page",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "email",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Contact Query",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJjdXN0b20tb2F1dGgta2V5aWQiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmcmVzaGNoYXQiLCJzdWIiOiJiZDFlNjcyNC0xYjhlLTQ0OGItYjUyOS03Nzk1ODA3MDFkZTAiLCJjbGllbnRJZCI6ImZjLTMyY2Y3MWZiLWM3MTctNDczNC05ODJkLWQ2NzlmZTNjZGRmNSIsInNjb3BlIjoiYWdlbnQ6cmVhZCBhZ2VudDpjcmVhdGUgYWdlbnQ6dXBkYXRlIGFnZW50OmRlbGV0ZSBjb252ZXJzYXRpb246Y3JlYXRlIGNvbnZlcnNhdGlvbjpyZWFkIGNvbnZlcnNhdGlvbjp1cGRhdGUgbWVzc2FnZTpjcmVhdGUgbWVzc2FnZTpnZXQgYmlsbGluZzp1cGRhdGUgcmVwb3J0czpmZXRjaCByZXBvcnRzOmV4dHJhY3QgcmVwb3J0czpyZWFkIHJlcG9ydHM6ZXh0cmFjdDpyZWFkIGFjY291bnQ6cmVhZCBkYXNoYm9hcmQ6cmVhZCB1c2VyOnJlYWQgdXNlcjpjcmVhdGUgdXNlcjp1cGRhdGUgdXNlcjpkZWxldGUgb3V0Ym91bmRtZXNzYWdlOnNlbmQgb3V0Ym91bmRtZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6bWVzc2FnZTpzZW5kIG1lc3NhZ2luZy1jaGFubmVsczptZXNzYWdlOmdldCBtZXNzYWdpbmctY2hhbm5lbHM6dGVtcGxhdGU6Y3JlYXRlIG1lc3NhZ2luZy1jaGFubmVsczp0ZW1wbGF0ZTpnZXQgZmlsdGVyaW5ib3g6cmVhZCBmaWx0ZXJpbmJveDpjb3VudDpyZWFkIHJvbGU6cmVhZCBpbWFnZTp1cGxvYWQiLCJpc3MiOiJmcmVzaGNoYXQiLCJ0eXAiOiJCZWFyZXIiLCJleHAiOjIwMDAwNDMwNTAsImlhdCI6MTY4NDQyMzg1MCwianRpIjoiNDExM2I4ODItM2MzZi00MTliLWFkNmMtMWJlNjY5NGE1MThhIn0.6QCH-INPyLpTe21ODCVCSZPIzz1oWfn4wxrTQYVfafw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://biddapoc.freshchat.com/v2/users?email=dotek23872@tiuas.com&items_per_page=10&sort_order=asc&sort_by=email&page=1",
+					"protocol": "https",
+					"host": [
+						"biddapoc",
+						"freshchat",
+						"com"
+					],
+					"path": [
+						"v2",
+						"users"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "dotek23872@tiuas.com"
+						},
+						{
+							"key": "items_per_page",
+							"value": "10"
+						},
+						{
+							"key": "sort_order",
+							"value": "asc"
+						},
+						{
+							"key": "sort_by",
+							"value": "email"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Query Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}.freshdesk.com/api/v2/search/contacts?query=\"email:'dotek23872@tiuas.com'%20AND%20unique_external_id:'1061813213'\"",
+					"protocol": "https",
+					"host": [
+						"{{host}}",
+						"freshdesk",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"search",
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "\"email:'dotek23872@tiuas.com'%20AND%20unique_external_id:'1061813213'\""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{passbidda}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "gZlhFEE5RvJkiuFVAIK8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
